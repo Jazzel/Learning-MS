@@ -1,0 +1,62 @@
+{% extends 'dashboard/base.html' %}
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="styled-font">Hello Instructor {{user.username}} !</h2>
+        <hr />
+        <div style="padding: 20px;">
+        <h3 class="styled-font text-center">Functions</h3>
+        <hr />
+        <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 m-0">
+            <a href="{% url 'teachers:students' %}">
+
+            <button type="button" style="width:100%;height:300px;" class="btn btn-primary">
+            
+        <i style="font-size: 50px;padding: 0;" class="now-ui-icons users_single-02"></i>
+        <h4>Students</h4>
+            
+            </button>
+            </a>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 m-0">
+    <button type="button" style="width:100%;height:300px;" class="btn btn-primary">
+        <i style="font-size: 50px;padding: 0;" class="now-ui-icons ui-1_calendar-60"></i>
+        <h4>Attendance</h4>
+    
+    </button>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 m-0">
+    <button type="button" style="width:100%;height:300px;" class="btn btn-primary">
+        
+        <i style="font-size: 50px;padding: 0;" class="now-ui-icons ui-2_chat-round"></i>
+        <h4>Chat</h4>
+
+    </button>
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 p-0 m-0">
+            <button type="button" style="width:100%;height:300px;" class="btn btn-primary">
+                <div>
+                    <i style="font-size: 50px;padding: 0;" class="now-ui-icons tech_tv"></i>
+                    <h4>Classes</h4>
+                </div>
+            </button>
+        </div>
+    
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

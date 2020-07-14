@@ -1,0 +1,40 @@
+{% extends 'dashboard/base.html' %}
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="styled-font">Hello Instructor {{user.username}} ! > Students List</h2>
+        <hr />
+        <div style="padding: 20px;">
+        <table class="table table-bordered p-0 m-0">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+                <tr>
+                    <td scope="row">{{object.user.first_name}} {{object.user.last_name}}</td>
+                    <td>{{object.user}}</td>
+                    <td><a 
+                    href="{% url 'teachers:student_details' pk=object.id %}"
+                     class="btn btn-info text-white buttons btn-sm">
+                                <i class="now-ui-icons education_glasses"></i></a>
+                        </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,39 @@
+
+{% extends 'dashboard/base.html' %}
+
+{% block graph %}
+<div class="panel-header panel-header-sm">
+</div>
+{% endblock graph %}
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-11">
+                <h2 style="font-family: Pacifico;" class="m-2">Students > Details</h2>
+            </div>
+        </div>
+        <hr>
+        
+<div class="card">
+    <div class="card-body">
+        <dl>
+            <dt>User</dt>
+            <dd>{{object.user.first_name}} {{object.user.last_name}}</dd>
+            <dt>Email</dt>
+            <dd>{% if object.user.email %}{{object.user.email}} {% else %}No email found{% endif %} </dd>
+            <dt>Role</dt>
+            <dd>{{object.get_role_display}}</dd>
+            <dt>Joined</dt>
+            <dd>{{object.created}}</dd>
+            <dt>Last Updated</dt>
+            <dd>{{object.updated}}</dd>
+        </dl>
+    </div>
+</div>
+        <p><a href="{% url 'teachers:students' %}" class="text-primary">Back to List</a></p>
+
+    </div>
+</div>
+
+{% endblock body %}

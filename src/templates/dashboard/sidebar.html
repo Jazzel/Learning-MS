@@ -1,0 +1,92 @@
+<div class="sidebar" data-color="orange">
+    <!--
+        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
+    -->
+    <div class="logo">
+        <a href="{% url 'accounts:profile' %}" class="simple-text logo-mini">
+            CD
+        </a>
+        <a href="{% url 'accounts:profile' %}" class="simple-text logo-normal">
+            CyproDev
+        </a> 
+    </div>
+    <div class="sidebar-wrapper" id="sidebar-wrapper">
+        <ul class="nav">
+             
+    {% if user.profile.role == "I" %}
+            <li class="{% if head in 'Instructor' %}active {% endif %} ">
+                <a href="{% url 'teachers:instructor' %}">
+                    <i class="now-ui-icons shopping_shop"></i>
+                    <p>Home</p>
+                </a>
+            </li>
+{% endif %}
+{% if user.profile.role == "S" %}
+            <li class="{% if head in 'Instructor' %}active {% endif %} ">
+                <a href="{% url 'students:student' %}">
+                    <i class="now-ui-icons shopping_shop"></i>
+                    <p>Home</p>
+                </a>
+            </li>
+{% endif %}
+<li class="{% if head in 'User Profile' %}active {% endif %} ">
+    <a href="{% url 'accounts:profile' %}">
+        <i class="now-ui-icons users_circle-08"></i>
+        <p>User Profile</p>
+    </a>
+</li>
+            {% comment %}
+            <li class="{% if head in 'Notifications' %}active {% endif %} ">
+                <a href="{% url 'notify' %}">
+                    <i class="now-ui-icons  ui-1_send"></i>
+                    <p>My Notifications</p>
+                </a>
+            </li>
+            <li class="{% if head in 'Services' %}active {% endif %} ">
+                <a href="{% url 'services:list' %}">
+                    <i class="now-ui-icons business_briefcase-24"></i>
+                    <p>Services</p>
+                </a>
+            </li>
+            <li class="{% if head in 'Portfolio' %}active {% endif %} ">
+                <a href="{% url 'portfolio:list' %}">
+                    <i class="now-ui-icons location_map-big"></i>
+                    <p>Portfolios</p>
+                </a>
+            </li>
+            <li class="{% if head in 'Contact Requests' %}active {% endif %} ">
+                <a href="{% url 'contact:list' %}">
+                    <i class="now-ui-icons ui-2_chat-round"></i>
+                    <p>Contact Requests</p>
+                </a>
+            </li>
+            <li class="{% if head in 'Project Requests' %}active {% endif %} ">
+                <a href="{% url 'projects' %}">
+                    <i class="now-ui-icons files_single-copy-04"></i>
+                    <p>Project Requests</p>
+                </a>
+            </li>
+            {% if request.user.is_superuser %}
+            <li class="{% if head in 'User Activity' %}active {% endif %} ">
+                <a href="{% url 'accounts:user_log' %}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>User Activity</p>
+                </a>
+            </li>
+            {% endif %}
+            <li class="{% if head in 'Tasks' %}active {% endif %} ">
+                <a href="{% url 'task:list' %}">
+                    <i class="now-ui-icons files_paper"></i>
+                    <p>Tasks</p>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'home' %}">
+                    <i class="now-ui-icons business_globe"></i>
+                    <p>Back to Site</p>
+                </a>
+            </li>
+            {% endcomment %}
+        </ul>
+    </div>
+</div>
